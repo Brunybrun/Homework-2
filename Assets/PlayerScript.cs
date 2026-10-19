@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerState s = PlayerState.Idle;
     }
 
     public void SetState(PlayerState s){
