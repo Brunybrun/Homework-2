@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public PlayerState state;
+    public PlayerState State = PlayerState.Idle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,6 +13,23 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetState(PlayerState s){
+        if (State == s)return;
+        State = s;
+        if (State == PlayerState.Idle){
+            Anim.Play("Idle");
+        }
+        else if (State == PlayerState.Walking){
+            Anim.Play("Walking");
+        }
+        else if (State == PlayerState.Jumping){
+            Anim.Play("Jumping");
+        }
+        else if (State == PlayerState.Stunned){
+            Anim.Play("Stunned");
+        }
     }
 
     public enum PlayerState{
