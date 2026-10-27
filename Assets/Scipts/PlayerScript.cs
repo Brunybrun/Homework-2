@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D RB;
     public int Speed = 3;
     public float Stuntimer;
+    static public bool hit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +77,10 @@ public class PlayerScript : MonoBehaviour
         {
             s = PlayerState.Walking;
             vel.x = -Speed;
+        }
+        if (hit)
+        {
+            s = PlayerState.Stunned;
         }
         SetState(s);
         RB.linearVelocity = vel;
